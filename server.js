@@ -115,7 +115,8 @@ app.post('/upload/post', (req, res) => {
 })
 
 app.get('/posts', (req, res) => {
-    Posts.find((err, data) => {
+    console.log(req.query.countryName.countryN)
+    Posts.find({country: req.query.countryName.countryN}, (err, data) => {
         if(err) {
             res.status(500).send(err)
         } else {
